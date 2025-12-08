@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:16.10-alpine3.22
+    container_name: mini-uber
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-U", "iceberg" ]
+      interval: 5s
+      retries: 10
+    environment:
+      POSTGRES_PASSWORD: postgresql
+      POSTGRES_USER: postgresql
+      POSTGRES_DB: uber-race
+    ports:
+      - "5432:5432"
+    volumes:
+      - ../data/uber-race:/var/lib/postgresql/data
