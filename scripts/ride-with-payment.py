@@ -222,10 +222,10 @@ def simular_corrida_com_pagamento():
     iniciar_corrida(corrida_id)
     finalizar_ou_cancelar(corrida_id, valor)
 
-def loop_simulacao():
-    while True:
-        simular_corrida_com_pagamento()
-        time.sleep(random.randint(3,5))
+# def loop_simulacao():
+#     while True:
+#         simular_corrida_com_pagamento()
+#         time.sleep(random.randint(3,5))
 
 # ---------------- PARALELISMO ----------------
 
