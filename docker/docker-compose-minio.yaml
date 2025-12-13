@@ -1,11 +1,11 @@
 services:
   minio:
-    image: minio/minio:latest
+    image: quay.io/minio/minio:latest
     container_name: minio-data-lake
     ports:
       - "9000:9000"
       - "9001:9001"
-    command: server --console-address ":9001" /lakehouse
+    command: server --console-address ":9001" /data-lake
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/check"]
       interval: 30s
@@ -16,4 +16,4 @@ services:
       MINIO_ROOT_USER: minio
       MINIO_ROOT_PASSWORD: minio123
     volumes:
-      - ../data/data-lake:/data
+      - ../data/data-lake:/data-lake
